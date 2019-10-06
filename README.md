@@ -17,7 +17,7 @@ Watch the video to hear from [Jeff Teper](https://youtu.be/ByVJtysh6mM) and Micr
 
 
 ### Session Details ###
-*  When: Saturday, December 12th' 2019
+*  When: Saturday, October 12th' 2019
 *  Time: 9:00pm – 4:30pm
 * Location: - More details to come soon.
 * Max Attendees: 100 (Due to space constraints, we are limited.)
