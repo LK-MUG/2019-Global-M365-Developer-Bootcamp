@@ -25,17 +25,17 @@ Watch the video to hear from [Jeff Teper](https://youtu.be/ByVJtysh6mM) and Micr
 * Skill Level: Beginner to Intermediate
 
 ### Agenda: ###
-9:00am-9:30am: ----------------Registration----------
-9:30am-10:15am: Microsoft 365 Platform Opportunity and Overview
-10:15am-11:15am: Microsoft Teams Bots, Messaging Extensions and Cards
-11:15am-11:30am: ------------- break -------------
-11:30am-12:30pm: Microsoft Teams Tabs and Connectors, Building Microsoft Teams Tabs using SharePoint Framework
-12:30pm-1:30pm: ---------- Lunch --------------
-1:30pm–2:30pm: Microsoft Teams Authentication in Bots and Tabs
-2:30pm–3:30pm: Microsoft Graph & Actionable Messages
-3:30pm-3:45pm: ------------- break -------------
-3:45pm-4:45pm: Office 365 and Applied AI
-4:45pm–5:30pm: ------ Close the day with a recap, swag time------
+* 9:00am-9:30am: ----------------Registration----------
+* 9:30am-10:15am: Microsoft 365 Platform Opportunity and Overview
+* 10:15am-11:15am: Microsoft Teams Bots, Messaging Extensions and Cards
+* 11:15am-11:30am: ------------- break -------------
+* 11:30am-12:30pm: Microsoft Teams Tabs and Connectors, Building Microsoft Teams Tabs using SharePoint Framework
+* 12:30pm-1:30pm: ---------- Lunch --------------
+* 1:30pm–2:30pm: Microsoft Teams Authentication in Bots and Tabs
+* 2:30pm–3:30pm: Microsoft Graph & Actionable Messages
+* 3:30pm-3:45pm: ------------- break -------------
+* 3:45pm-4:45pm: Office 365 and Applied AI
+* 4:45pm–5:30pm: ------ Close the day with a recap, swag time------
 
 ### [REGISTRATION URL](https://www.meetup.com/lk-mug/events/262774014/) 
 
