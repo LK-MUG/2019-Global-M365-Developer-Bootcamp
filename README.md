@@ -24,7 +24,7 @@ Watch the video to hear from [Jeff Teper](https://youtu.be/ByVJtysh6mM) and Micr
 * Cost: FREE!!!
 * Skill Level: Beginner to Intermediate
 
-### Agenda:###
+### Agenda: ###
 9:00am-9:30am: ----------------Registration----------
 9:30am-10:15am: Microsoft 365 Platform Opportunity and Overview
 10:15am-11:15am: Microsoft Teams Bots, Messaging Extensions and Cards
