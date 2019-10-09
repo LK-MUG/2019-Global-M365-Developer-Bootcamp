@@ -1,0 +1,30 @@
+{
+  // Copyright (c) Microsoft Corporation. All rights reserved.
+  // Licensed under the MIT license.
+
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "d4078816-d1ac-480a-9743-999d57e1c482",
+  "alias": "HelloWorldWebPart",
+  "componentType": "WebPart",
+
+  // The "*" signifies that the version should be taken from the package.json
+  "version": "*",
+  "manifestVersion": 2,
+
+  // If true, the component can only be installed on sites where Custom Script is allowed.
+  // Components that allow authors to embed arbitrary script code should set this to true.
+  // https://support.office.com/en-us/article/Turn-scripting-capabilities-on-or-off-1f2c515f-5d7e-448a-9fd7-835da935584f
+  "requiresCustomScript": false,
+  "supportedHosts": ["SharePointWebPart"],
+
+  "preconfiguredEntries": [{
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Other
+    "group": { "default": "Other" },
+    "title": { "default": "Hello SPFx" },
+    "description": { "default": "My first SPFx web part" },
+    "officeFabricIconFontName": "BirthdayCake",
+    "properties": {
+      "description": "HelloWorld"
+    }
+  }]
+}
