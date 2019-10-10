@@ -73,6 +73,13 @@ Microsoft Teams supports much of the common [bot framework](https://dev.botframe
 
 You can use any code editor or IDE that supports these technologies, however the steps and code samples in this training use [Visual Studio Code](https://code.visualstudio.com/) for tabs using HTML/JavaScript and [Visual Studio 2017](https://www.visualstudio.com/) for bots using the C# SDK.
 
+#### Install [.NET Core SDK](https://dotnet.microsoft.com/download) version 2.1
+
+  ```bash
+  # determine dotnet version
+  dotnet --version
+  ```
+
 #### Bot template for Visual Studio 2017
 
 Download and install the [bot template for C#](https://github.com/Microsoft/BotFramework-Samples/tree/master/docs-samples/CSharp/Simple-LUIS-Notes-Sample/VSIX) from Github. Additional step-by-step information for creating a bot to run locally is available on the [Create a bot with the Bot Builder SDK for .NET page](https://docs.microsoft.com/en-us/azure/bot-service/dotnet/bot-builder-dotnet-quickstart?view=azure-bot-service-3.0) in the Azure Bot Service documentation.
