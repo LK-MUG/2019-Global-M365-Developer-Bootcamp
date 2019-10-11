@@ -34,14 +34,16 @@ In this exercise you will create a SharePoint Framework client-side web part.
 
     Use the following to complete the prompt that is displayed:
 
-    - **What is your solution name?**: HelloWorld
+    
+    - **What is your solution name?**: CasinoShop<YOUR_NAME_HERE>
+    > NOTE: Please remember to add your name after Casino<YOUR_NAME_HERE> example: CasinoShopJohnSmith
     - **Which baseline packages do you want to target for your component(s)?**: SharePoint Online only (latest)
     - **Where do you want to place the files?**: Use the current folder
-    - **Do you want to allow the tenant admin the choice of being able to deploy the solution to all sites immediately without running any feature deployment or adding apps in sites?**: No
+    - **Do you want to allow the tenant admin the choice of being able to deploy the solution to all sites immediately without running any feature deployment or adding apps in sites?**: Yes
     - **Will the components in the solution require permissions to access web APIs that are unique and not shared with other components in the tenant?** No
     - **Which type of client-side component to create?**: WebPart
-    - **What is your Web part name?**: HelloWorld
-    - **What is your Web part description?**: HelloWorld description
+    - **What is your Web part name?**: CasinoShop
+    - **What is your Web part description?**: CasinoShop description
     - **Which framework would you like to use?**: No JavaScript framework
 
     After provisioning the folders required for the project, the generator will install all the dependency packages using NPM.
@@ -129,18 +131,34 @@ Now change the properties of the web part to give it a new name, description and
     }]
     ```
 
+
+
 1. Change the web part's title and description to something different.
 1. The web part's icon is the name of one of the icons listed in the Office UI Fabric, located here: [https://developer.microsoft.com/fabric#/styles/icons](https://developer.microsoft.com/fabric#/styles/icons). Pick one and update the `officeFabricIconFontName` property:
 
     ```json
+    "supportedHosts": ["SharePointWebPart","TeamsTab","SharePointFullPage"],
     "preconfiguredEntries": [{
       ...
-      "title": { "default": "Hello SPFx" },
+      "title": { "default": "<YOUR_NAME_HERE> - Hello SPFx Casino" },
       "description": { "default": "My first SPFx web part" },
       "officeFabricIconFontName": "BirthdayCake",
       ...
     }]
     ```
+
+    > NOTE: Please do not forget to change the supportedHosts to has value of ["SharePointWebPart","TeamsTab","SharePointFullPage"]. This will allow us to publish the app as teams tab later.
+
+    > NOTE: Please remember to add your name in the title before `- Hello SPFx` Casino. Example:
+
+     ```json
+    "preconfiguredEntries": [{
+      ...
+      "title": { "default": "John Smith - Hello SPFx Casino" },
+      ...
+    }]
+    ```
+
 
 1. Start the local web server using the provided gulp **serve** task:
 
@@ -214,7 +232,7 @@ But what if you want the browser to open the hosted workbench automatically for 
     ```json
     "serveConfigurations": {
       "myConfig": {
-        "pageUrl": "https://contoso.sharepoint.com/sites/mySite/_layouts/workbench.aspx"
+        "pageUrl": "https://lkmug.sharepoint.com/sites/casino/_layouts/workbench.aspx"
       }
     }
     ```
@@ -236,7 +254,7 @@ But what if you want the browser to open the hosted workbench automatically for 
           "pageUrl": "https://localhost:5432/workbench"
         },
         "myConfig": {
-          "pageUrl": "https://contoso.sharepoint.com/sites/mySite/_layouts/workbench.aspx"
+          "pageUrl": "https://lkmug.sharepoint.com/sites/casino/_layouts/workbench.aspx"
         }
       }
     }
@@ -260,5 +278,323 @@ But what if you want the browser to open the hosted workbench automatically for 
 
 ## Exercise 3: Create the Casino shop code
 
+Remove everything from the render function so it should look like
 
-## Exercise 4: Deploy to teams
+```
+render() {
+
+}
+```
+
+Add the code sniped below inside the render() function 
+
+```
+this.domElement.innerHTML = `
+      <div>
+        <img src="https://blog.velingeorgiev.com/media/bigimages/chips-shop.jpg" style="width:100%;max-width:500px;" />
+        <h1>Buy chips</h1>
+        <div  style="width:100%;padding:5px">
+          <label for="name" >Name</label>
+          <input type="text" id="name" style="width:50%"/>
+        </div>
+        <div  style="width:100%;padding:5px">
+          <label for="redchips" >Red Chips</label>
+          <input type="number" id="redchips" />
+        </div>
+        <div  style="width:100%;padding:5px">
+          <label for="bluechips" >Blue Chips</label>
+          <input type="number" id="bluechips" />
+        </div>
+        <div style="width:100%;padding:5px">
+          <label for="greenchips" >Green Chips</label>
+          <input type="number" id="greenchips" />
+        </div>
+        <div style="width:100%;padding:5px">
+            <button type="button" id="buy" >Buy</button>
+        </div>
+        <h1>Sell chips</h1>
+        <img src="https://blog.velingeorgiev.com/media/bigimages/money.jpg" style="width:100%;max-width:500px;" />
+        <div  style="width:100%;padding:5px">
+          <label for="name2" >Name</label>
+          <input type="text" id="name2" style="width:50%"/>
+        </div>
+        <div  style="width:100%;padding:5px">
+          <label for="redchips2" >Red Chips</label>
+          <input type="number" id="redchips2" />
+        </div>
+        <div  style="width:100%;padding:5px">
+          <label for="bluechips2" >Blue Chips</label>
+          <input type="number" id="bluechips2" />
+        </div>
+        <div style="width:100%;padding:5px">
+          <label for="greenchips2" >Green Chips</label>
+          <input type="number" id="greenchips2" />
+        </div>
+        <div style="width:100%;padding:5px">
+            <button type="button" id="sell" >Sell</button>
+        </div>
+        <a href="https://lkmug.sharepoint.com/sites/casino/Lists/CasinoChipOrders" >Chip orders table</a>
+        <a href="https://lkmug.sharepoint.com/sites/casino/Lists/CasinoCheckOut" >Users checkout table</a>
+      </div>`;
+
+    window.document.getElementById("buy")
+      .addEventListener('click', (event: any) => {
+        event.preventDefault();
+        var name = (window.document.getElementById('name') as any).value;
+        var redChips = (window.document.getElementById('redchips') as any).value;
+        var greenChips = (window.document.getElementById('greenchips') as any).value;
+        var blueChips = (window.document.getElementById('bluechips') as any).value;
+        var totalCost = CalculateChipsCost(redChips, greenChips, blueChips);
+
+        if (window.confirm(`Total cost is ${totalCost}`)) {
+          UpdateItem('CasinoChipOrders',  [
+            {
+              "FieldName": "Title",
+              "FieldValue": `${name}`
+            },
+            {
+              "FieldName": "RedChips",
+              "FieldValue": `${redChips}`
+            },
+            {
+              "FieldName": "BlueChips",
+              "FieldValue": `${blueChips}`
+            },
+            {
+              "FieldName": "GreenChips",
+              "FieldValue": `${greenChips}`
+            },
+            {
+              "FieldName": "Amount",
+              "FieldValue": `${totalCost}`
+            }
+          ]);
+        }
+      });
+
+    window.document.getElementById("sell")
+      .addEventListener('click', (event: any) => {
+        event.preventDefault();
+        var name = (window.document.getElementById('name2') as any).value;
+        var redChips = (window.document.getElementById('redchips2') as any).value;
+        var greenChips = (window.document.getElementById('greenchips2') as any).value;
+        var blueChips = (window.document.getElementById('bluechips2') as any).value;
+        var totalCost = CalculateChipsCost(redChips, greenChips, blueChips);
+
+        if (window.confirm(`Total cost you earned ${totalCost}`)) {
+          UpdateItem('CasinoCheckOut', [
+            {
+              "FieldName": "Title",
+              "FieldValue": `${name}`
+            },
+            {
+              "FieldName": "RedChips",
+              "FieldValue": `${redChips}`
+            },
+            {
+              "FieldName": "BlueChips",
+              "FieldValue": `${blueChips}`
+            },
+            {
+              "FieldName": "GreenChips",
+              "FieldValue": `${greenChips}`
+            },
+            {
+              "FieldName": "Amount",
+              "FieldValue": `${totalCost}`
+            }
+          ]);
+        }
+      });
+
+    function UpdateItem(listTitle, values) {
+      fetch(`https://lkmug.sharepoint.com/sites/casino/_api/contextinfo`, {
+        headers: {
+          "Accept": "application/json;odata=nometadata",
+          "Content-type": "application/json;odata=verbose"
+        },
+        method: "POST"
+      })
+        .then((response) => {
+
+          if (!response.ok) {
+            console.log(response);
+          }
+          return response.json();
+        })
+        .then((response) => {
+
+          console.log(response);
+
+          fetch(`https://lkmug.sharepoint.com/sites/casino/_api/web/lists/getbytitle('${listTitle}')/AddValidateUpdateItemUsingPath`, {
+            headers: {
+              "Accept": "application/json;odata=nometadata",
+              "Content-type": "application/json;odata=verbose",
+              "X-RequestDigest": response.FormDigestValue
+            },
+            method: "POST",
+            body: JSON.stringify({
+              "formValues": values,
+              "bNewDocumentUpdate": false
+            })
+          }).then((response) => {
+            if (!response.ok) {
+              console.log(response);
+            }
+            return response.json();
+          })
+            .then((response) => {
+              console.log(response);
+              alert('DONE');
+            })
+            .catch(err => { alert(err); })
+
+        }).catch(err => { alert(err); })
+    }
+
+    function CalculateChipsCost(red, green, blue) {
+      var cost = 0;
+
+      cost += (red * 5);
+      cost += (green * 25);
+      cost += (blue * 50);
+
+      return cost;
+    }
+```
+
+Open your online workbench by typing 
+
+```
+gulp serve --config myConfig
+```
+
+User the middle plus icon and try to find your web part and add it on the page. Then test it.
+
+
+## Packaging and deploying your web part to SharePoint
+
+Ensure that your console is activated in the root folder of the solution, which was just created.
+
+1. Execute the following commands to build bundle your solution. This executes a release build of your project by using a dynamic label as the host URL for your assets. This URL is automatically updated based on your tenant CDN settings.
+
+    ```shell
+    gulp build
+    gulp bundle --ship
+    ```
+
+1. Execute the following task to package your solution. This creates an updated **teams-tab-webpart.sppkg** package on the **sharepoint/solution** folder.
+
+    ```shell
+    gulp package-solution --ship
+    ```
+
+Next, you need to deploy the package that was generated to the tenant app catalog.
+
+1. Go to your site's app catalog. [https://lkmug.sharepoint.com/sites/AppCatalog/AppCatalog/Forms/AllItems.aspx](https://lkmug.sharepoint.com/sites/AppCatalog/AppCatalog/Forms/AllItems.aspx)
+
+1. Upload or drag and drop the **teams-tab-webpart.sppkg** to the app catalog.
+
+    ![Upload solution to app catalog](https://github.com/SharePoint/sp-dev-docs/raw/master/docs/images/sp-teams-solution-upload-catalog.png)
+
+    This deploys the client-side solution package. Because this is a full trust client-side solution, SharePoint displays a dialog and asks you to trust the client-side solution to deploy.
+
+    Notice how the **domain** list in the prompt says *SharePoint Online*. This is because the content is either served from the Office 365 CDN or from the app catalog, depending on the tenant settings.
+
+    Ensure that the **Make this solution available to all sites in the organization** option is selected, so that the web part can be used from the Microsoft Teams side.
+
+    ![Trust client-side solution deployment](https://github.com/SharePoint/sp-dev-docs/raw/master/docs/images/sp-teams-upload-solution-deploy.png) 
+
+1. Select **Deploy**.
+
+    Notice that you can see if there's any exceptions or issues in the package by looking the **App Package Error Message** column in the app catalog.
+
+Now the web part is deployed and is automatically available cross the SharePoint Online sites.
+
+> [!NOTE]
+> In this tutorial case, we are using tenant wide deployment option of the SharePoint Framework solution. This will ensure that the development and usage experience is as easy as possible. You could also deploy the solution as site scope, but in that case you'd need to ensure that the solution is deployed on the SharePoint site behind of the Microsoft Teams, before you can use it.
+
+## Making the web part available in Microsoft Teams
+
+In order to make your web part available in Microsoft Teams you will have synchronize your solution with teams.
+
+1. Select the **teams-tab-webpart-client-side-solution** package in the SharePoint tenant app catalog and click the **Sync to Teams** button at in the ribbon at the **Files** tab.
+
+   ![Sync to Teams button in ribbon](https://github.com/SharePoint/sp-dev-docs/raw/master/docs/images/sp-teams-sync-to-teams-button.png)
+
+1. Move to a channel in a team. In the below picture we have activated **General** channel in **Team**
+
+    ![Channel activated](https://github.com/SharePoint/sp-dev-docs/raw/master/docs/images/sp-teams-channel-activated.png)
+
+1. Select `+` to add a new tab on the channel
+1. In the **Add a tab** dialog, scroll to the bottom of the list and select **More Apps**
+1. Select the **Upload a custom app** > **Upload for ...** from the list of app categories:
+1. Select the Microsoft Teams application ZIP file previously created. This is the file that contains the **manifest.json** and two image files.
+
+    After a moment, the application will appear next to your tenant name.
+
+    > You may need to refresh the page for the app to appear if you are using the browser Microsoft Teams client.
+
+1. Select your custom tab called **MyFirstTeamTab** in the list
+
+    ![Add a tab](https://github.com/SharePoint/sp-dev-docs/raw/master/docs/images/sp-teams-add-a-tab.png)
+
+Your custom tab has been added on the Microsoft Teams channel and you can see how the code is reacting that it's in Microsoft Teams context. Theme of the web part is by default coming from the underlying SharePoint site.
+
+![Custom tab added](https://github.com/SharePoint/sp-dev-docs/raw/master/docs/images/sp-teams-custom-tab-added.png)
+
+## Updating your app package
+
+When you make changes to your app and create a new package, you might encounter an error when clicking "sync to teams".
+
+A notification "Failed to sync solution to teams" might appear on the top right of your page.
+
+If this happens follow these steps to delete your app from Microsoft Teams and then try to sync it again:
+
+1. Open Microsoft Teams
+1. When viewing your team channel, click + to "Add a tab"
+1. Click the "More apps" link at the top
+1. Find your app in the list, and click on the "..." menu
+1. Click "Delete" to remove the app from Microsoft Teams
+
+You should now be able to sync your new version to Microsoft Teams.
+
+## See also
+
+* [The Microsoft Teams developer platform](https://docs.microsoft.com/en-us/microsoftteams/platform/overview)
+
+## BONUS: Add the HelloWorld web part to modern page
+
+1. In your browser, go to your site where the solution was just installed - [https://lkmug.sharepoint.com/sites/casino/](https://lkmug.sharepoint.com/sites/casino/)
+1. Select the gears icon in the top nav bar on the right, and then select **Add a page**.
+1. Edit the page.
+1. Open the web part picker and select your **HelloWorld** web part.
+
+    > [!NOTE]
+    > Screenshots are from a site which is using modern experience.
+
+The web part assets are loaded from the local environment. To load the scripts hosted on your local computer, you need to enable the browser to load unsafe scripts. Depending on the browser you are using, make sure you enable loading unsafe scripts for this session.
+
+You should see the **HelloWorld** web part you built in the previous article that retrieves lists from the current site. 
+
+![Hello World web part in modern page](https://github.com/SharePoint/sp-dev-docs/raw/master/docs/images/sp-wp-modern-page.png)
+
+## Edit web part properties
+
+1. Select the **Configure element** icon (pen) in the web part to open the property pane for the web part.
+
+    ![Edit web part](https://github.com/SharePoint/sp-dev-docs/raw/master/docs/images/edit-webpart-modern-page.png)
+
+    This is the same property pane you built and previewed in the Workbench.
+
+1. Edit the **Description** property, and enter **Client-side web parts are awesome!**
+
+    ![Hello World web part in modern page](https://github.com/SharePoint/sp-dev-docs/raw/master/docs/images/sp-wp-modern-page-pp.png)
+
+1. Notice that you still have the same behaviors such as a reactive pane where the web part is updated as you type.
+1. Select the **x** icon to close the client-side property pane.
+1. On the toolbar, select **Save and close** to save the page.
+
+Usefull links: [https://github.com/SharePoint/sp-dev-docs/blob/master/docs/spfx/web-parts/get-started/using-web-part-as-ms-teams-tab.md](https://github.com/SharePoint/sp-dev-docs/blob/master/docs/spfx/web-parts/get-started/using-web-part-as-ms-teams-tab.md)
+[https://docs.microsoft.com/en-us/sharepoint/dev/sp-add-ins/working-with-lists-and-list-items-with-rest](https://docs.microsoft.com/en-us/sharepoint/dev/sp-add-ins/working-with-lists-and-list-items-with-rest)
+[https://github.com/SharePoint/sp-dev-docs/blob/master/docs/spfx/web-parts/get-started/serve-your-web-part-in-a-sharepoint-page.md](https://github.com/SharePoint/sp-dev-docs/blob/master/docs/spfx/web-parts/get-started/serve-your-web-part-in-a-sharepoint-page.md)
