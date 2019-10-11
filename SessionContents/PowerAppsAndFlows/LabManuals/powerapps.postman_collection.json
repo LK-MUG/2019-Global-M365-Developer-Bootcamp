@@ -1,0 +1,78 @@
+{
+	"id": "b7b01526-9e41-9dda-84d4-d210bd2a925e",
+	"name": "powerapps",
+	"description": "",
+	"order": [
+		"f5c15140-b8f0-e533-e394-4d6c0580e517",
+		"7d402b1f-2cf8-c143-e37d-33c6cd357cab"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1569587908798,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "7d402b1f-2cf8-c143-e37d-33c6cd357cab",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://cdspoker.azurewebsites.net/api/Values",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "b7b01526-9e41-9dda-84d4-d210bd2a925e",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Get Probability",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1570712257996,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "6"
+		},
+		{
+			"id": "f5c15140-b8f0-e533-e394-4d6c0580e517",
+			"headers": "",
+			"headerData": [],
+			"url": "https://cdspoker.azurewebsites.net/api/Values?value=5",
+			"queryParams": [
+				{
+					"key": "value",
+					"value": "5",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "b7b01526-9e41-9dda-84d4-d210bd2a925e",
+			"data": null,
+			"dataMode": "params",
+			"name": "GetCards",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1570711707097,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		}
+	]
+}
