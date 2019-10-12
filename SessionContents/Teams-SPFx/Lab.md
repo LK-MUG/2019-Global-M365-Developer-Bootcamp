@@ -22,7 +22,8 @@ To complete this lab, you need the following:
 ## Install
 
 - Nodejs 10x
-- Run `npm i -g yo, @microsoft/sharepoint`
+- Run `npm i -g yo`
+- Run `npm i -g @microsoft/sharepoint`
 
 ## Exercise 1: Creating a SharePoint Framework Client-Side Web Part
 
