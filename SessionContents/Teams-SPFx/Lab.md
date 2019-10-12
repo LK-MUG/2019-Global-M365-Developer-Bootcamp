@@ -21,7 +21,8 @@ To complete this lab, you need the following:
 
 ## Install
 
-- Nodejs 10x
+- Install Nodejs 10x
+- Open the command line
 - Run `npm install -g yo gulp`
 - Run `npm install -g @microsoft/generator-sharepoint`
 
