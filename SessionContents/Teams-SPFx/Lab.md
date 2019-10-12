@@ -19,6 +19,11 @@ To complete this lab, you need the following:
 
 <a name="exercise1"></a>
 
+## Install
+
+- Nodejs 10x
+- Run `npm i -g yo, @microsoft/sharepoint`
+
 ## Exercise 1: Creating a SharePoint Framework Client-Side Web Part
 
 In this exercise you will create a SharePoint Framework client-side web part.
