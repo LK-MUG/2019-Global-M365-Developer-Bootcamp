@@ -22,8 +22,10 @@ To complete this lab, you need the following:
 ## Install
 
 - Nodejs 10x
-- Run `npm i -g yo`
-- Run `npm i -g @microsoft/sharepoint`
+- Run `npm install -g yo gulp`
+- Run `npm install -g @microsoft/generator-sharepoint`
+
+More info here: [https://docs.microsoft.com/en-us/sharepoint/dev/spfx/set-up-your-development-environment](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/set-up-your-development-environment)
 
 ## Exercise 1: Creating a SharePoint Framework Client-Side Web Part
 
